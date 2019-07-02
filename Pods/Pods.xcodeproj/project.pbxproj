@@ -1,0 +1,832 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0C4B4E313FFAAE29E376F5486849B00A /* Swifty360Player-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6BE43F0C11F772D1C0C860C8BF0CAD7F /* Swifty360Player-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0E6FE85F322D10ECCD6172671B8EE017 /* Swifty360MotionManagerObserverItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C861958884F2EF08610B3928618F60B /* Swifty360MotionManagerObserverItem.swift */; };
+		22E6CF641D3AF6610B04D5A84826AA3C /* Float++.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BADFCA93FC969AB18615DD65BFFFA9 /* Float++.swift */; };
+		25A24E867B7412C589BE8F7ACD5849C7 /* Swifty360EulerAngleCalculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439A856AF457F6A7120D74BD41F71290 /* Swifty360EulerAngleCalculations.swift */; };
+		30862C48B94B3D9B2F505557860AA8E0 /* Swifty360MotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF409BC02032C099D843EC7F3A0CC428 /* Swifty360MotionManager.swift */; };
+		3E8FF55C15976E889078E55DE2552802 /* Swifty360View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6452B59B403F5BFB15E0D4CE0083DE /* Swifty360View.swift */; };
+		521105FD81CE36690FA050FD880B64CE /* Swifty360PlayerScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2814F87FD7D0A8C6F647073B65A1F0EF /* Swifty360PlayerScene.swift */; };
+		56EBDA147D5F9830751F38F363760A94 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
+		6459DCB974BE7E79E3E4C1D8ADCD55F0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
+		6D14BA3BB82059B45698D99FE2EFF73C /* Swifty360Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4E76226294B74C4C4AB604CF26E4A3 /* Swifty360Types.swift */; };
+		74BC1271DDE7F7B603C9DEA4B87EA5EB /* Swifty360CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A17AFA35DC1ADBFCD06E1CDBE6DE7C1 /* Swifty360CameraController.swift */; };
+		8088BB322870B0CCFA46F8B112430A87 /* Pods-VRVideoPlayer-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 73A4C74987456A5AA298B5A3A0F51CE2 /* Pods-VRVideoPlayer-dummy.m */; };
+		8C06F07349D3CA69B65248FFE4E12AC3 /* Swifty360ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5536AE7546BE8582E37076E3189AC37 /* Swifty360ViewController.swift */; };
+		989600A69F10B5A47F71AA4C7FD0DDE8 /* Pods-VRVideoPlayerTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = ADE25AB9D6FC979E4E40BC69C88FE581 /* Pods-VRVideoPlayerTests-dummy.m */; };
+		A2DDEE0FFAFA2AB0E414B5C27FE89F00 /* Pods-VRVideoPlayerTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CC80E047BD2F1613FA49310D7A0D23B /* Pods-VRVideoPlayerTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AFC70BF9C68AAF13CB111A0583C47C4E /* Pods-VRVideoPlayer-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0B35DB5834FD1A6DDA5B83824932A12E /* Pods-VRVideoPlayer-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B8337D2B24943F2C87F0BC58BE28E196 /* SwiftySKVideoNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF33E43B0039E620A21C0953A5EF491D /* SwiftySKVideoNode.swift */; };
+		C5CADD5FB9D9645536A302C127574FB4 /* Swifty360Player-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FB3CF516328AF0AD7A5B4D06A7832F3B /* Swifty360Player-dummy.m */; };
+		E2E29E9045A8D7DCD72AB18FE0422F4A /* Swifty360CameraPanGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D644D280252F6F4059EB5B1B87EA9047 /* Swifty360CameraPanGestureRecognizer.swift */; };
+		F5961AEAE4CD04D096A617A12492349D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		815A9DB319E420FEC5C7A9F17D59CE57 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B50AD7A19609FCBF76787CBBAA1D2BCA;
+			remoteInfo = Swifty360Player;
+		};
+		A1B79FC630EBB06E077FF650F5A1B746 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D594B405D350A89A221FC026CCBE502D;
+			remoteInfo = "Pods-VRVideoPlayer";
+		};
+		A7A70E0C98B4A69304755DFA3EA79D59 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B50AD7A19609FCBF76787CBBAA1D2BCA;
+			remoteInfo = Swifty360Player;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0B35DB5834FD1A6DDA5B83824932A12E /* Pods-VRVideoPlayer-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-VRVideoPlayer-umbrella.h"; sourceTree = "<group>"; };
+		126D38191FBD7F7737C8A797117D9DA4 /* Pods-VRVideoPlayerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-VRVideoPlayerTests.release.xcconfig"; sourceTree = "<group>"; };
+		2814F87FD7D0A8C6F647073B65A1F0EF /* Swifty360PlayerScene.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Swifty360PlayerScene.swift; path = Swifty360Player/Swifty360PlayerScene.swift; sourceTree = "<group>"; };
+		2DEEEBB58DDEC09B0A63AB209D1DC2AA /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2E0FBF483591C829319055894AB2F3EF /* Pods-VRVideoPlayer-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-VRVideoPlayer-resources.sh"; sourceTree = "<group>"; };
+		3EBE9FBEA48BFAF7BB5894A7775D26F9 /* Pods-VRVideoPlayerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-VRVideoPlayerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		3F4E76226294B74C4C4AB604CF26E4A3 /* Swifty360Types.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Swifty360Types.swift; path = Swifty360Player/Swifty360Types.swift; sourceTree = "<group>"; };
+		439A856AF457F6A7120D74BD41F71290 /* Swifty360EulerAngleCalculations.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Swifty360EulerAngleCalculations.swift; path = Swifty360Player/Swifty360EulerAngleCalculations.swift; sourceTree = "<group>"; };
+		45C25EF0EF1829F1F4221A2682651CD8 /* Swifty360Player.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Swifty360Player.modulemap; sourceTree = "<group>"; };
+		46EDDA9AF7665DD7F7CEA393F21F9EAD /* Pods-VRVideoPlayer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-VRVideoPlayer.debug.xcconfig"; sourceTree = "<group>"; };
+		4F6452B59B403F5BFB15E0D4CE0083DE /* Swifty360View.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Swifty360View.swift; path = Swifty360Player/Swifty360View.swift; sourceTree = "<group>"; };
+		56AC0AEA7FB062628291B067A070C5E9 /* Swifty360Player-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Swifty360Player-prefix.pch"; sourceTree = "<group>"; };
+		5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		62B56EE259B5916E475C58D4AB1E1B72 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6BE43F0C11F772D1C0C860C8BF0CAD7F /* Swifty360Player-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Swifty360Player-umbrella.h"; sourceTree = "<group>"; };
+		6CC80E047BD2F1613FA49310D7A0D23B /* Pods-VRVideoPlayerTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-VRVideoPlayerTests-umbrella.h"; sourceTree = "<group>"; };
+		6E2F11F72C81377A62233E9161CAFACE /* Swifty360Player.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Swifty360Player.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		73A4C74987456A5AA298B5A3A0F51CE2 /* Pods-VRVideoPlayer-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-VRVideoPlayer-dummy.m"; sourceTree = "<group>"; };
+		7839D2F182BDBF534EBC966632602809 /* Pods_VRVideoPlayerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VRVideoPlayerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7FA5BEEA848B63E9877ABE93EBA39DE7 /* Swifty360Player.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Swifty360Player.xcconfig; sourceTree = "<group>"; };
+		83101ED1DB75C2735692C00BE7752791 /* Pods-VRVideoPlayerTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-VRVideoPlayerTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		83549B677E7669DABE95BAED732037BF /* Pods-VRVideoPlayerTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-VRVideoPlayerTests-resources.sh"; sourceTree = "<group>"; };
+		8A17AFA35DC1ADBFCD06E1CDBE6DE7C1 /* Swifty360CameraController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Swifty360CameraController.swift; path = Swifty360Player/Swifty360CameraController.swift; sourceTree = "<group>"; };
+		9175E70CC2806B6EDF9B6151B76C2616 /* Pods-VRVideoPlayer-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-VRVideoPlayer-acknowledgements.markdown"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9C6F7510B9F644918880D5AD8C9F6918 /* Pods-VRVideoPlayerTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-VRVideoPlayerTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		9C861958884F2EF08610B3928618F60B /* Swifty360MotionManagerObserverItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Swifty360MotionManagerObserverItem.swift; path = Swifty360Player/Swifty360MotionManagerObserverItem.swift; sourceTree = "<group>"; };
+		ADE25AB9D6FC979E4E40BC69C88FE581 /* Pods-VRVideoPlayerTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-VRVideoPlayerTests-dummy.m"; sourceTree = "<group>"; };
+		AEEC8B0F02FCCBC4F25FCD860620ED09 /* Pods-VRVideoPlayer.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-VRVideoPlayer.modulemap"; sourceTree = "<group>"; };
+		B5536AE7546BE8582E37076E3189AC37 /* Swifty360ViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Swifty360ViewController.swift; path = Swifty360Player/Swifty360ViewController.swift; sourceTree = "<group>"; };
+		B8BADFCA93FC969AB18615DD65BFFFA9 /* Float++.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Float++.swift"; path = "Swifty360Player/Float++.swift"; sourceTree = "<group>"; };
+		BFFD06F7EA9D2A95ED25BBE5C1E59AF8 /* Pods_VRVideoPlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VRVideoPlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C73E4BC0C4D14AF276D08C1092097036 /* Pods-VRVideoPlayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-VRVideoPlayer.release.xcconfig"; sourceTree = "<group>"; };
+		CEB77E4DB8D32F7FB6F893C885AFFD8C /* Pods-VRVideoPlayer-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-VRVideoPlayer-acknowledgements.plist"; sourceTree = "<group>"; };
+		CF33E43B0039E620A21C0953A5EF491D /* SwiftySKVideoNode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftySKVideoNode.swift; path = Swifty360Player/SwiftySKVideoNode.swift; sourceTree = "<group>"; };
+		D57C627AADABF2F98E7F5C1AE1C7DFD8 /* Pods-VRVideoPlayerTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-VRVideoPlayerTests.modulemap"; sourceTree = "<group>"; };
+		D644D280252F6F4059EB5B1B87EA9047 /* Swifty360CameraPanGestureRecognizer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Swifty360CameraPanGestureRecognizer.swift; path = Swifty360Player/Swifty360CameraPanGestureRecognizer.swift; sourceTree = "<group>"; };
+		DD8A932D6AD251BCA3D796334E315D1A /* Pods-VRVideoPlayerTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-VRVideoPlayerTests-frameworks.sh"; sourceTree = "<group>"; };
+		DF409BC02032C099D843EC7F3A0CC428 /* Swifty360MotionManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Swifty360MotionManager.swift; path = Swifty360Player/Swifty360MotionManager.swift; sourceTree = "<group>"; };
+		E107000FD7410D014F0DD016C353D3FC /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB3CF516328AF0AD7A5B4D06A7832F3B /* Swifty360Player-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Swifty360Player-dummy.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		46B42BBA41F6D6D1103B23EBBEEA3C4B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6459DCB974BE7E79E3E4C1D8ADCD55F0 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DAA47C81F43EF6853EB877B220751BBD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F5961AEAE4CD04D096A617A12492349D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F792DDC06E346CCDAE94739BDBB42545 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				56EBDA147D5F9830751F38F363760A94 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		06CC2FE5765F77C6D7E7FC1B6F0FAC56 /* Pods-VRVideoPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				2DEEEBB58DDEC09B0A63AB209D1DC2AA /* Info.plist */,
+				AEEC8B0F02FCCBC4F25FCD860620ED09 /* Pods-VRVideoPlayer.modulemap */,
+				9175E70CC2806B6EDF9B6151B76C2616 /* Pods-VRVideoPlayer-acknowledgements.markdown */,
+				CEB77E4DB8D32F7FB6F893C885AFFD8C /* Pods-VRVideoPlayer-acknowledgements.plist */,
+				73A4C74987456A5AA298B5A3A0F51CE2 /* Pods-VRVideoPlayer-dummy.m */,
+				2E0FBF483591C829319055894AB2F3EF /* Pods-VRVideoPlayer-resources.sh */,
+				0B35DB5834FD1A6DDA5B83824932A12E /* Pods-VRVideoPlayer-umbrella.h */,
+				46EDDA9AF7665DD7F7CEA393F21F9EAD /* Pods-VRVideoPlayer.debug.xcconfig */,
+				C73E4BC0C4D14AF276D08C1092097036 /* Pods-VRVideoPlayer.release.xcconfig */,
+			);
+			name = "Pods-VRVideoPlayer";
+			path = "Target Support Files/Pods-VRVideoPlayer";
+			sourceTree = "<group>";
+		};
+		0FB73508EBFD9073B141A7468203D4B7 /* Pods-VRVideoPlayerTests */ = {
+			isa = PBXGroup;
+			children = (
+				62B56EE259B5916E475C58D4AB1E1B72 /* Info.plist */,
+				D57C627AADABF2F98E7F5C1AE1C7DFD8 /* Pods-VRVideoPlayerTests.modulemap */,
+				9C6F7510B9F644918880D5AD8C9F6918 /* Pods-VRVideoPlayerTests-acknowledgements.markdown */,
+				83101ED1DB75C2735692C00BE7752791 /* Pods-VRVideoPlayerTests-acknowledgements.plist */,
+				ADE25AB9D6FC979E4E40BC69C88FE581 /* Pods-VRVideoPlayerTests-dummy.m */,
+				DD8A932D6AD251BCA3D796334E315D1A /* Pods-VRVideoPlayerTests-frameworks.sh */,
+				83549B677E7669DABE95BAED732037BF /* Pods-VRVideoPlayerTests-resources.sh */,
+				6CC80E047BD2F1613FA49310D7A0D23B /* Pods-VRVideoPlayerTests-umbrella.h */,
+				3EBE9FBEA48BFAF7BB5894A7775D26F9 /* Pods-VRVideoPlayerTests.debug.xcconfig */,
+				126D38191FBD7F7737C8A797117D9DA4 /* Pods-VRVideoPlayerTests.release.xcconfig */,
+			);
+			name = "Pods-VRVideoPlayerTests";
+			path = "Target Support Files/Pods-VRVideoPlayerTests";
+			sourceTree = "<group>";
+		};
+		2663ECF9EEE17E2E0FDF45C4D370B183 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				06CC2FE5765F77C6D7E7FC1B6F0FAC56 /* Pods-VRVideoPlayer */,
+				0FB73508EBFD9073B141A7468203D4B7 /* Pods-VRVideoPlayerTests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		510A276903626C47F5C00D513845A19F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8C1F10396ACA29A6914DA7FED02DE7F7 /* Swifty360Player */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		5E0D919E635D23B70123790B8308F8EF /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		6730A417403C0830F28D38D29C2AEF86 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BFFD06F7EA9D2A95ED25BBE5C1E59AF8 /* Pods_VRVideoPlayer.framework */,
+				7839D2F182BDBF534EBC966632602809 /* Pods_VRVideoPlayerTests.framework */,
+				6E2F11F72C81377A62233E9161CAFACE /* Swifty360Player.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				510A276903626C47F5C00D513845A19F /* Pods */,
+				6730A417403C0830F28D38D29C2AEF86 /* Products */,
+				2663ECF9EEE17E2E0FDF45C4D370B183 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		8C1F10396ACA29A6914DA7FED02DE7F7 /* Swifty360Player */ = {
+			isa = PBXGroup;
+			children = (
+				B8BADFCA93FC969AB18615DD65BFFFA9 /* Float++.swift */,
+				8A17AFA35DC1ADBFCD06E1CDBE6DE7C1 /* Swifty360CameraController.swift */,
+				D644D280252F6F4059EB5B1B87EA9047 /* Swifty360CameraPanGestureRecognizer.swift */,
+				439A856AF457F6A7120D74BD41F71290 /* Swifty360EulerAngleCalculations.swift */,
+				DF409BC02032C099D843EC7F3A0CC428 /* Swifty360MotionManager.swift */,
+				9C861958884F2EF08610B3928618F60B /* Swifty360MotionManagerObserverItem.swift */,
+				2814F87FD7D0A8C6F647073B65A1F0EF /* Swifty360PlayerScene.swift */,
+				3F4E76226294B74C4C4AB604CF26E4A3 /* Swifty360Types.swift */,
+				4F6452B59B403F5BFB15E0D4CE0083DE /* Swifty360View.swift */,
+				B5536AE7546BE8582E37076E3189AC37 /* Swifty360ViewController.swift */,
+				CF33E43B0039E620A21C0953A5EF491D /* SwiftySKVideoNode.swift */,
+				9E2C957A780E5CA79012758012CC8BD1 /* Support Files */,
+			);
+			path = Swifty360Player;
+			sourceTree = "<group>";
+		};
+		9E2C957A780E5CA79012758012CC8BD1 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				E107000FD7410D014F0DD016C353D3FC /* Info.plist */,
+				45C25EF0EF1829F1F4221A2682651CD8 /* Swifty360Player.modulemap */,
+				7FA5BEEA848B63E9877ABE93EBA39DE7 /* Swifty360Player.xcconfig */,
+				FB3CF516328AF0AD7A5B4D06A7832F3B /* Swifty360Player-dummy.m */,
+				56AC0AEA7FB062628291B067A070C5E9 /* Swifty360Player-prefix.pch */,
+				6BE43F0C11F772D1C0C860C8BF0CAD7F /* Swifty360Player-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Swifty360Player";
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5E0D919E635D23B70123790B8308F8EF /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		36F6E615D3AFB6FEF679EF3970071F3C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0C4B4E313FFAAE29E376F5486849B00A /* Swifty360Player-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A38891BD5D8B967499AD471D2A8B27CB /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A2DDEE0FFAFA2AB0E414B5C27FE89F00 /* Pods-VRVideoPlayerTests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D8207323B314FD2A9A7DD2D40D0FFE4D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AFC70BF9C68AAF13CB111A0583C47C4E /* Pods-VRVideoPlayer-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		B50AD7A19609FCBF76787CBBAA1D2BCA /* Swifty360Player */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3013E1E24A921B38EEE97D5D6A13F692 /* Build configuration list for PBXNativeTarget "Swifty360Player" */;
+			buildPhases = (
+				36F6E615D3AFB6FEF679EF3970071F3C /* Headers */,
+				BFC67698AB304E210246DD5F7199838B /* Sources */,
+				DAA47C81F43EF6853EB877B220751BBD /* Frameworks */,
+				13684FED49F19BBA3FF4CB38F01629DF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Swifty360Player;
+			productName = Swifty360Player;
+			productReference = 6E2F11F72C81377A62233E9161CAFACE /* Swifty360Player.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		D594B405D350A89A221FC026CCBE502D /* Pods-VRVideoPlayer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A05C7EFDCB396B2510DD7667F9A7F19F /* Build configuration list for PBXNativeTarget "Pods-VRVideoPlayer" */;
+			buildPhases = (
+				D8207323B314FD2A9A7DD2D40D0FFE4D /* Headers */,
+				A5C9418FCE70D9EDC329A49257B3150A /* Sources */,
+				46B42BBA41F6D6D1103B23EBBEEA3C4B /* Frameworks */,
+				9DA81ACF9B4A56BA2607F9D9CA105013 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				655196CE5EA2EC0AD54F63CB2CC4D131 /* PBXTargetDependency */,
+			);
+			name = "Pods-VRVideoPlayer";
+			productName = "Pods-VRVideoPlayer";
+			productReference = BFFD06F7EA9D2A95ED25BBE5C1E59AF8 /* Pods_VRVideoPlayer.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		E9FAAAF221B09BBF6BC396A8615F5AB4 /* Pods-VRVideoPlayerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9EBB9580F24CAB9139489110644D65C9 /* Build configuration list for PBXNativeTarget "Pods-VRVideoPlayerTests" */;
+			buildPhases = (
+				A38891BD5D8B967499AD471D2A8B27CB /* Headers */,
+				B2307924B46F98AE5D6F14196A1F191C /* Sources */,
+				F792DDC06E346CCDAE94739BDBB42545 /* Frameworks */,
+				5A08C40C5D86B34CD7B96E3D9B51D402 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AC2DC56420D0BFA61684883B61AF9081 /* PBXTargetDependency */,
+				C04432168A04637EEB00AF539FBF774F /* PBXTargetDependency */,
+			);
+			name = "Pods-VRVideoPlayerTests";
+			productName = "Pods-VRVideoPlayerTests";
+			productReference = 7839D2F182BDBF534EBC966632602809 /* Pods_VRVideoPlayerTests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				English,
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 6730A417403C0830F28D38D29C2AEF86 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D594B405D350A89A221FC026CCBE502D /* Pods-VRVideoPlayer */,
+				E9FAAAF221B09BBF6BC396A8615F5AB4 /* Pods-VRVideoPlayerTests */,
+				B50AD7A19609FCBF76787CBBAA1D2BCA /* Swifty360Player */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		13684FED49F19BBA3FF4CB38F01629DF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5A08C40C5D86B34CD7B96E3D9B51D402 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9DA81ACF9B4A56BA2607F9D9CA105013 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A5C9418FCE70D9EDC329A49257B3150A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8088BB322870B0CCFA46F8B112430A87 /* Pods-VRVideoPlayer-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B2307924B46F98AE5D6F14196A1F191C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				989600A69F10B5A47F71AA4C7FD0DDE8 /* Pods-VRVideoPlayerTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BFC67698AB304E210246DD5F7199838B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22E6CF641D3AF6610B04D5A84826AA3C /* Float++.swift in Sources */,
+				74BC1271DDE7F7B603C9DEA4B87EA5EB /* Swifty360CameraController.swift in Sources */,
+				E2E29E9045A8D7DCD72AB18FE0422F4A /* Swifty360CameraPanGestureRecognizer.swift in Sources */,
+				25A24E867B7412C589BE8F7ACD5849C7 /* Swifty360EulerAngleCalculations.swift in Sources */,
+				30862C48B94B3D9B2F505557860AA8E0 /* Swifty360MotionManager.swift in Sources */,
+				0E6FE85F322D10ECCD6172671B8EE017 /* Swifty360MotionManagerObserverItem.swift in Sources */,
+				C5CADD5FB9D9645536A302C127574FB4 /* Swifty360Player-dummy.m in Sources */,
+				521105FD81CE36690FA050FD880B64CE /* Swifty360PlayerScene.swift in Sources */,
+				6D14BA3BB82059B45698D99FE2EFF73C /* Swifty360Types.swift in Sources */,
+				3E8FF55C15976E889078E55DE2552802 /* Swifty360View.swift in Sources */,
+				8C06F07349D3CA69B65248FFE4E12AC3 /* Swifty360ViewController.swift in Sources */,
+				B8337D2B24943F2C87F0BC58BE28E196 /* SwiftySKVideoNode.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		655196CE5EA2EC0AD54F63CB2CC4D131 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Swifty360Player;
+			target = B50AD7A19609FCBF76787CBBAA1D2BCA /* Swifty360Player */;
+			targetProxy = A7A70E0C98B4A69304755DFA3EA79D59 /* PBXContainerItemProxy */;
+		};
+		AC2DC56420D0BFA61684883B61AF9081 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-VRVideoPlayer";
+			target = D594B405D350A89A221FC026CCBE502D /* Pods-VRVideoPlayer */;
+			targetProxy = A1B79FC630EBB06E077FF650F5A1B746 /* PBXContainerItemProxy */;
+		};
+		C04432168A04637EEB00AF539FBF774F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Swifty360Player;
+			target = B50AD7A19609FCBF76787CBBAA1D2BCA /* Swifty360Player */;
+			targetProxy = 815A9DB319E420FEC5C7A9F17D59CE57 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		25C3A3AC730C52E361F8D4B2FECED4FD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 126D38191FBD7F7737C8A797117D9DA4 /* Pods-VRVideoPlayerTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_BITCODE = NO;
+				INFOPLIST_FILE = "Target Support Files/Pods-VRVideoPlayerTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-VRVideoPlayerTests/Pods-VRVideoPlayerTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		647573627D1A63DD9656283D20E9CBFA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7FA5BEEA848B63E9877ABE93EBA39DE7 /* Swifty360Player.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_BITCODE = NO;
+				GCC_PREFIX_HEADER = "Target Support Files/Swifty360Player/Swifty360Player-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Swifty360Player/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Swifty360Player/Swifty360Player.modulemap";
+				PRODUCT_MODULE_NAME = Swifty360Player;
+				PRODUCT_NAME = Swifty360Player;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		8AE0E72A939822E794DEF6678ACC0BCF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3EBE9FBEA48BFAF7BB5894A7775D26F9 /* Pods-VRVideoPlayerTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_BITCODE = NO;
+				INFOPLIST_FILE = "Target Support Files/Pods-VRVideoPlayerTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-VRVideoPlayerTests/Pods-VRVideoPlayerTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		8CAAD1F9FA71E1302B05D99F8FFB373F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		995000BF3E7B029824E8B826647BDE13 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 46EDDA9AF7665DD7F7CEA393F21F9EAD /* Pods-VRVideoPlayer.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_BITCODE = NO;
+				INFOPLIST_FILE = "Target Support Files/Pods-VRVideoPlayer/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-VRVideoPlayer/Pods-VRVideoPlayer.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		A904583AC899E37B34870BDAA384CDB9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7FA5BEEA848B63E9877ABE93EBA39DE7 /* Swifty360Player.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_BITCODE = NO;
+				GCC_PREFIX_HEADER = "Target Support Files/Swifty360Player/Swifty360Player-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Swifty360Player/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Swifty360Player/Swifty360Player.modulemap";
+				PRODUCT_MODULE_NAME = Swifty360Player;
+				PRODUCT_NAME = Swifty360Player;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		C169E15498FA6527F7B604BCF75C58F1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C73E4BC0C4D14AF276D08C1092097036 /* Pods-VRVideoPlayer.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_BITCODE = NO;
+				INFOPLIST_FILE = "Target Support Files/Pods-VRVideoPlayer/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-VRVideoPlayer/Pods-VRVideoPlayer.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		FFF583FA7420DC0AD49940362019A032 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FFF583FA7420DC0AD49940362019A032 /* Debug */,
+				8CAAD1F9FA71E1302B05D99F8FFB373F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3013E1E24A921B38EEE97D5D6A13F692 /* Build configuration list for PBXNativeTarget "Swifty360Player" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				647573627D1A63DD9656283D20E9CBFA /* Debug */,
+				A904583AC899E37B34870BDAA384CDB9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9EBB9580F24CAB9139489110644D65C9 /* Build configuration list for PBXNativeTarget "Pods-VRVideoPlayerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8AE0E72A939822E794DEF6678ACC0BCF /* Debug */,
+				25C3A3AC730C52E361F8D4B2FECED4FD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A05C7EFDCB396B2510DD7667F9A7F19F /* Build configuration list for PBXNativeTarget "Pods-VRVideoPlayer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				995000BF3E7B029824E8B826647BDE13 /* Debug */,
+				C169E15498FA6527F7B604BCF75C58F1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

@@ -1,0 +1,16 @@
+PODS:
+  - Swifty360Player (0.2.3)
+
+DEPENDENCIES:
+  - Swifty360Player (= 0.2.3)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Swifty360Player
+
+SPEC CHECKSUMS:
+  Swifty360Player: f389526a893a8ad1c0d4aaf84861db59b42cd2e3
+
+PODFILE CHECKSUM: dbf2d04c95c1e24f722bb04134a0454bd8763dec
+
+COCOAPODS: 1.5.3

@@ -1,0 +1,11 @@
+framework module VRVideoPlayer {
+  umbrella header "VRVideoPlayer.h"
+
+  export *
+  module * { export * }
+}
+
+module VRVideoPlayer.Swift {
+    header "VRVideoPlayer-Swift.h"
+    requires objc
+}
