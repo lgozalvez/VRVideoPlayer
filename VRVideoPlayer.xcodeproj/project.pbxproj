@@ -1,0 +1,594 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		10AA55ACC7DFCD59D11D0168 /* Pods_VRVideoPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 936142184105655BB264FFB2 /* Pods_VRVideoPlayer.framework */; };
+		45891D7B8F856CCFCFFCA06A /* Pods_VRVideoPlayerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A34D550013BFE683849E0DB /* Pods_VRVideoPlayerTests.framework */; };
+		AC6EA37422CB62D3004B0C10 /* RotationMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6EA37322CB62D3004B0C10 /* RotationMode.swift */; };
+		ACC6C19D22CAE08F007F9D74 /* VRVideoPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACC6C19322CAE08F007F9D74 /* VRVideoPlayer.framework */; };
+		ACC6C1A222CAE08F007F9D74 /* VRVideoPlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC6C1A122CAE08F007F9D74 /* VRVideoPlayerTests.swift */; };
+		ACC6C1A422CAE08F007F9D74 /* VRVideoPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = ACC6C19622CAE08F007F9D74 /* VRVideoPlayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ACC6C1AE22CAE4FF007F9D74 /* VRVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC6C1AD22CAE4FF007F9D74 /* VRVideoView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		ACC6C19E22CAE08F007F9D74 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ACC6C18A22CAE08F007F9D74 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ACC6C19222CAE08F007F9D74;
+			remoteInfo = VRVideoPlayer;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0065CD5E4BB0EABE7B09DED5 /* Pods-VRVideoPlayerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VRVideoPlayerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-VRVideoPlayerTests/Pods-VRVideoPlayerTests.release.xcconfig"; sourceTree = "<group>"; };
+		4D8C9218665A5B43D4E9F4F8 /* Pods-VRVideoPlayerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VRVideoPlayerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VRVideoPlayerTests/Pods-VRVideoPlayerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		7A34D550013BFE683849E0DB /* Pods_VRVideoPlayerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VRVideoPlayerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		936142184105655BB264FFB2 /* Pods_VRVideoPlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VRVideoPlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC6EA37322CB62D3004B0C10 /* RotationMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationMode.swift; sourceTree = "<group>"; };
+		ACC6C19322CAE08F007F9D74 /* VRVideoPlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VRVideoPlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACC6C19622CAE08F007F9D74 /* VRVideoPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VRVideoPlayer.h; sourceTree = "<group>"; };
+		ACC6C19722CAE08F007F9D74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ACC6C19C22CAE08F007F9D74 /* VRVideoPlayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VRVideoPlayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACC6C1A122CAE08F007F9D74 /* VRVideoPlayerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VRVideoPlayerTests.swift; sourceTree = "<group>"; };
+		ACC6C1A322CAE08F007F9D74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ACC6C1AD22CAE4FF007F9D74 /* VRVideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VRVideoView.swift; sourceTree = "<group>"; };
+		EAB00AB61C7018B8021C7F15 /* Pods-VRVideoPlayer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VRVideoPlayer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VRVideoPlayer/Pods-VRVideoPlayer.debug.xcconfig"; sourceTree = "<group>"; };
+		ECF5C975EA064CD33E65706F /* Pods-VRVideoPlayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VRVideoPlayer.release.xcconfig"; path = "Pods/Target Support Files/Pods-VRVideoPlayer/Pods-VRVideoPlayer.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		ACC6C19022CAE08F007F9D74 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				10AA55ACC7DFCD59D11D0168 /* Pods_VRVideoPlayer.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACC6C19922CAE08F007F9D74 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ACC6C19D22CAE08F007F9D74 /* VRVideoPlayer.framework in Frameworks */,
+				45891D7B8F856CCFCFFCA06A /* Pods_VRVideoPlayerTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		36442EFFC06C15730B0DCFC6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				936142184105655BB264FFB2 /* Pods_VRVideoPlayer.framework */,
+				7A34D550013BFE683849E0DB /* Pods_VRVideoPlayerTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8B59924C6803F66690AD16AF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EAB00AB61C7018B8021C7F15 /* Pods-VRVideoPlayer.debug.xcconfig */,
+				ECF5C975EA064CD33E65706F /* Pods-VRVideoPlayer.release.xcconfig */,
+				4D8C9218665A5B43D4E9F4F8 /* Pods-VRVideoPlayerTests.debug.xcconfig */,
+				0065CD5E4BB0EABE7B09DED5 /* Pods-VRVideoPlayerTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		AC6EA39D22CB7063004B0C10 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				ACC6C19622CAE08F007F9D74 /* VRVideoPlayer.h */,
+				ACC6C19722CAE08F007F9D74 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		ACC6C18922CAE08F007F9D74 = {
+			isa = PBXGroup;
+			children = (
+				ACC6C19522CAE08F007F9D74 /* VRVideoPlayer */,
+				ACC6C1A022CAE08F007F9D74 /* VRVideoPlayerTests */,
+				ACC6C19422CAE08F007F9D74 /* Products */,
+				8B59924C6803F66690AD16AF /* Pods */,
+				36442EFFC06C15730B0DCFC6 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		ACC6C19422CAE08F007F9D74 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ACC6C19322CAE08F007F9D74 /* VRVideoPlayer.framework */,
+				ACC6C19C22CAE08F007F9D74 /* VRVideoPlayerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ACC6C19522CAE08F007F9D74 /* VRVideoPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				ACC6C1AD22CAE4FF007F9D74 /* VRVideoView.swift */,
+				AC6EA37322CB62D3004B0C10 /* RotationMode.swift */,
+				AC6EA39D22CB7063004B0C10 /* Supporting Files */,
+			);
+			path = VRVideoPlayer;
+			sourceTree = "<group>";
+		};
+		ACC6C1A022CAE08F007F9D74 /* VRVideoPlayerTests */ = {
+			isa = PBXGroup;
+			children = (
+				ACC6C1A122CAE08F007F9D74 /* VRVideoPlayerTests.swift */,
+				ACC6C1A322CAE08F007F9D74 /* Info.plist */,
+			);
+			path = VRVideoPlayerTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		ACC6C18E22CAE08F007F9D74 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ACC6C1A422CAE08F007F9D74 /* VRVideoPlayer.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		ACC6C19222CAE08F007F9D74 /* VRVideoPlayer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ACC6C1A722CAE08F007F9D74 /* Build configuration list for PBXNativeTarget "VRVideoPlayer" */;
+			buildPhases = (
+				F93B858ADF618EA24B8DFC74 /* [CP] Check Pods Manifest.lock */,
+				ACC6C18E22CAE08F007F9D74 /* Headers */,
+				ACC6C18F22CAE08F007F9D74 /* Sources */,
+				ACC6C19022CAE08F007F9D74 /* Frameworks */,
+				ACC6C19122CAE08F007F9D74 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VRVideoPlayer;
+			productName = VRVideoPlayer;
+			productReference = ACC6C19322CAE08F007F9D74 /* VRVideoPlayer.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		ACC6C19B22CAE08F007F9D74 /* VRVideoPlayerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ACC6C1AA22CAE08F007F9D74 /* Build configuration list for PBXNativeTarget "VRVideoPlayerTests" */;
+			buildPhases = (
+				A6595C7464FE27CF6167829F /* [CP] Check Pods Manifest.lock */,
+				ACC6C19822CAE08F007F9D74 /* Sources */,
+				ACC6C19922CAE08F007F9D74 /* Frameworks */,
+				ACC6C19A22CAE08F007F9D74 /* Resources */,
+				F62CA9A1649A3FAE0C65123E /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ACC6C19F22CAE08F007F9D74 /* PBXTargetDependency */,
+			);
+			name = VRVideoPlayerTests;
+			productName = VRVideoPlayerTests;
+			productReference = ACC6C19C22CAE08F007F9D74 /* VRVideoPlayerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		ACC6C18A22CAE08F007F9D74 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1020;
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = com.monteroc;
+				TargetAttributes = {
+					ACC6C19222CAE08F007F9D74 = {
+						CreatedOnToolsVersion = 10.2.1;
+						LastSwiftMigration = 1020;
+					};
+					ACC6C19B22CAE08F007F9D74 = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
+				};
+			};
+			buildConfigurationList = ACC6C18D22CAE08F007F9D74 /* Build configuration list for PBXProject "VRVideoPlayer" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = ACC6C18922CAE08F007F9D74;
+			productRefGroup = ACC6C19422CAE08F007F9D74 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ACC6C19222CAE08F007F9D74 /* VRVideoPlayer */,
+				ACC6C19B22CAE08F007F9D74 /* VRVideoPlayerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		ACC6C19122CAE08F007F9D74 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACC6C19A22CAE08F007F9D74 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A6595C7464FE27CF6167829F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VRVideoPlayerTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F62CA9A1649A3FAE0C65123E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-VRVideoPlayerTests/Pods-VRVideoPlayerTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Swifty360Player/Swifty360Player.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swifty360Player.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VRVideoPlayerTests/Pods-VRVideoPlayerTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F93B858ADF618EA24B8DFC74 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VRVideoPlayer-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		ACC6C18F22CAE08F007F9D74 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC6EA37422CB62D3004B0C10 /* RotationMode.swift in Sources */,
+				ACC6C1AE22CAE4FF007F9D74 /* VRVideoView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACC6C19822CAE08F007F9D74 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ACC6C1A222CAE08F007F9D74 /* VRVideoPlayerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		ACC6C19F22CAE08F007F9D74 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ACC6C19222CAE08F007F9D74 /* VRVideoPlayer */;
+			targetProxy = ACC6C19E22CAE08F007F9D74 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		ACC6C1A522CAE08F007F9D74 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		ACC6C1A622CAE08F007F9D74 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		ACC6C1A822CAE08F007F9D74 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EAB00AB61C7018B8021C7F15 /* Pods-VRVideoPlayer.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = ZX5XTRMYJH;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_BITCODE = NO;
+				INFOPLIST_FILE = "$(SRCROOT)/VRVideoPlayer/Supporting Files/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.monteroc.VRVideoPlayer;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		ACC6C1A922CAE08F007F9D74 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = ECF5C975EA064CD33E65706F /* Pods-VRVideoPlayer.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = ZX5XTRMYJH;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_BITCODE = NO;
+				INFOPLIST_FILE = "$(SRCROOT)/VRVideoPlayer/Supporting Files/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.monteroc.VRVideoPlayer;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		ACC6C1AB22CAE08F007F9D74 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4D8C9218665A5B43D4E9F4F8 /* Pods-VRVideoPlayerTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZX5XTRMYJH;
+				INFOPLIST_FILE = VRVideoPlayerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.monteroc.VRVideoPlayerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		ACC6C1AC22CAE08F007F9D74 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0065CD5E4BB0EABE7B09DED5 /* Pods-VRVideoPlayerTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZX5XTRMYJH;
+				INFOPLIST_FILE = VRVideoPlayerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.monteroc.VRVideoPlayerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		ACC6C18D22CAE08F007F9D74 /* Build configuration list for PBXProject "VRVideoPlayer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ACC6C1A522CAE08F007F9D74 /* Debug */,
+				ACC6C1A622CAE08F007F9D74 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ACC6C1A722CAE08F007F9D74 /* Build configuration list for PBXNativeTarget "VRVideoPlayer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ACC6C1A822CAE08F007F9D74 /* Debug */,
+				ACC6C1A922CAE08F007F9D74 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ACC6C1AA22CAE08F007F9D74 /* Build configuration list for PBXNativeTarget "VRVideoPlayerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ACC6C1AB22CAE08F007F9D74 /* Debug */,
+				ACC6C1AC22CAE08F007F9D74 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = ACC6C18A22CAE08F007F9D74 /* Project object */;
+}

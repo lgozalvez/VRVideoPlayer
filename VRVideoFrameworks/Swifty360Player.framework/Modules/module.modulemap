@@ -1,0 +1,11 @@
+framework module Swifty360Player {
+  umbrella header "Swifty360Player-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module Swifty360Player.Swift {
+    header "Swifty360Player-Swift.h"
+    requires objc
+}
