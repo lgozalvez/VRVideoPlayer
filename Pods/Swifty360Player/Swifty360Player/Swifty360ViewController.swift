@@ -105,6 +105,18 @@ open class Swifty360ViewController: UIViewController, Swifty360CameraControllerD
     }
 
     fileprivate func addPlayerViewConstraints() {
+        
+        // Our player view should cover the whole screen.
+        // TODO: Open an issue to discuss and contribute this back to the Swifty360 framework.
+        
+        NSLayoutConstraint.activate([
+            playerView.topAnchor.constraint(equalTo: view.topAnchor),
+            playerView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            playerView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            playerView.rightAnchor.constraint(equalTo: view.rightAnchor)
+            ])
+        
+        /*
         let margins = view.layoutMarginsGuide
         NSLayoutConstraint.activate([
             playerView.leadingAnchor.constraint(equalTo: margins.leadingAnchor),
@@ -115,6 +127,7 @@ open class Swifty360ViewController: UIViewController, Swifty360CameraControllerD
             playerView.topAnchor.constraint(equalToSystemSpacingBelow: guide.topAnchor, multiplier: 1.0),
             guide.bottomAnchor.constraint(equalToSystemSpacingBelow: playerView.bottomAnchor, multiplier: 1.0)
             ])
+         */
     }
 
     override open func viewDidLoad() {
