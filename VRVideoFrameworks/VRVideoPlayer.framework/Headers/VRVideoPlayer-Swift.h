@@ -192,6 +192,7 @@ enum Mode : NSInteger;
 SWIFT_CLASS("_TtC13VRVideoPlayer16FullScreenButton")
 @interface FullScreenButton : UIButton
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+- (void)didMoveToSuperview;
 /// Tell the button what’s it’s current state or mode.
 /// This method configure the button icons based on it’s mode.
 /// \param mode determines the current button mode, <code>fullScreen</code> or <code>normal</code>.
@@ -238,11 +239,15 @@ typedef SWIFT_ENUM(NSInteger, RotationMode, closed) {
   RotationModeRight = 3,
 };
 
+
+
+@protocol VRVideoViewDelegate;
 @class NSBundle;
 
 /// Displays a video in 360º, uses device motion and gestures recognizers to nagivate throughout the video.
 SWIFT_CLASS("_TtC13VRVideoPlayer11VRVideoView")
 @interface VRVideoView : UIViewController
+@property (nonatomic, strong) id <VRVideoViewDelegate> _Nullable delegate;
 /// Creates a VRVideoView object to display a video in 360º with the provided information.
 /// \param url video URL to display in the view.
 ///
@@ -325,22 +330,19 @@ SWIFT_CLASS("_TtC13VRVideoPlayer11VRVideoView")
 ///
 - (void)fullScreenWithAnimated:(BOOL)animated duration:(double)duration;
 /// Undo the current full screen, if any.
-/// This method sets the view frame to the original <code>frame</code> provided when creating this <code>VRVideoView</code>.
+/// This method just dismiss the current <code>VRVideoView</code>.
 /// \param animated whether we should animate this transition or not.
-///
-/// \param duration Total duration of the animations, measured in seconds.
-/// When <code>animated</code> is false, this value defaults to 0.0.
 ///
 - (void)undoFullScreenWithAnimated:(BOOL)animated duration:(double)duration;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
 @end
 
 
+
+
 @interface VRVideoView (SWIFT_EXTENSION(VRVideoPlayer))
 - (void)observeValueForKeyPath:(NSString * _Nullable)keyPath ofObject:(id _Nullable)object change:(NSDictionary<NSKeyValueChangeKey, id> * _Nullable)change context:(void * _Nullable)context;
 @end
-
-
 
 enum VideoStatus : NSInteger;
 

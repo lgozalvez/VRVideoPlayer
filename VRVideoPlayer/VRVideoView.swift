@@ -21,7 +21,8 @@ import Swifty360Player
     fileprivate var videoFrame: CGRect = .zero
     fileprivate(set) var videoPlayer: AVPlayer?
     
-    public var delegate: VRVideoViewDelegate?
+    @objc public var delegate: VRVideoViewDelegate?
+    public var isFullScreen: Bool = false
     
     // Key-value observing context
     fileprivate var playerItemContext = 0
@@ -60,20 +61,30 @@ import Swifty360Player
         super.viewWillAppear(animated)
 
         guard let url = customVideoURL else { return }
-        videoPlayer = AVPlayer(url: url)
         
-        delegate?.loadingVideo()
-        delegate?.videoStatusChangedTo(status: .loading)
+        if videoPlayer == nil {
+            videoPlayer = AVPlayer(url: url)
+            
+            delegate?.loadingVideo()
+            delegate?.videoStatusChangedTo(status: .loading)
+            
+            // Register as an observer of the player item's status property.
+            videoPlayer?.currentItem?.addObserver(self,
+                                                 forKeyPath: #keyPath(AVPlayerItem.status),
+                                                 options: [.old, .new],
+                                                 context: &playerItemContext)
+        }
         
         guard let videoPlayer = videoPlayer else { return }
         
-        // Register as an observer of the player item's status property.
-        videoPlayer.currentItem?.addObserver(self,
-                                             forKeyPath: #keyPath(AVPlayerItem.status),
-                                             options: [.old, .new],
-                                             context: &playerItemContext)
-        
         let motionManager = Swifty360MotionManager.shared
+        
+        guard swifty360ViewController == nil else {
+            if autoplay {
+                videoPlayer.play()
+            }
+            return
+        }
         swifty360ViewController = Swifty360ViewController(withAVPlayer: videoPlayer,
                                                           motionManager: motionManager)
         
@@ -93,22 +104,21 @@ import Swifty360Player
     }
     
     @objc private func addDefaultFullScreenButton(on view: UIView) {
-        var isFullScreen = false
-        _ = FullScreenButton(view: view, handler: { kkc in
-            if isFullScreen {
+        /// This method assumes the button will dispatch another view controller [modally]
+        /// this means we will have 1 full screen button with only one possible state in a VRVideoView.
+        let mode: FullScreenButton.Mode = isFullScreen ? .fullScreen : .normal
+        
+        _ = FullScreenButton(view: view, mode: mode, handler: { _ in
+            if self.isFullScreen {
                 self.undoFullScreen(animated: true, duration: 0.3)
-                kkc.set(mode: .normal)
             } else {
                 self.fullScreen(animated: true, duration: 0.3)
-                kkc.set(mode: .fullScreen)
             }
-            isFullScreen.toggle()
         })
     }
     
-    // FIXME: test + fix this function. Right now must be called after this view controller appears
-    //        and some custom constraints are not working propertly.
-    // TODO: expose this interface when issues are solved.
+    // FIXME: Add the proper custom button when entering in full-screen mode.
+    // TODO: expose this interface when issues gets solved.
     @objc private func addFullScreenButton(
         appearance: FullScreenButton.Appearance = .dark,
         background: FullScreenButton.Background = .vibrant,
@@ -116,18 +126,16 @@ import Swifty360Player
         vPosition: FullScreenButton.VPosition = .top,
         isFullScreen: Bool = false) {
         
+        let mode: FullScreenButton.Mode = isFullScreen ? .fullScreen : .normal
         guard let _view = swifty360ViewController?.view else { return }
-        var _isFullScreen = isFullScreen
-        _ = FullScreenButton(view: _view, handler: { (_) in
-            if _isFullScreen {
+        
+        _ = FullScreenButton(view: _view, mode: mode, handler: { _ in
+            if isFullScreen {
                 self.undoFullScreen(animated: true, duration: 0.3)
             } else {
                 self.fullScreen(animated: true, duration: 0.3)
             }
-            _isFullScreen.toggle()
         }, appearance: appearance, background: background, hPosition: hPosition, vPosition: vPosition)
-        _view.layoutIfNeeded()
-        _view.setNeedsDisplay()
     }
     
     // MARK: - Convenience methods.
@@ -296,36 +304,29 @@ import Swifty360Player
     ///   - duration: Total duration of the animations, measured in seconds.
     ///               When `animated` is false, this value defaults to 0.0.
     @objc public func fullScreen(animated: Bool, duration: Double) {
-        UIView.animate(withDuration: 0.8, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
-            // TODO: explore other ways (such as scaling) to perform this fullScreen in a
-            //       more fluent way.
-            
-            // self.videoPlayerViewCenter = self.view.center
-            self.view.frame = UIScreen.main.bounds
-            // self.view.center = CGPoint(x: UIScreen.main.bounds.midX, y: UIScreen.main.bounds.midY)
-            // let scalingX = UIScreen.main.bounds.width / self.view.frame.width
-            // let scalingY = UIScreen.main.bounds.height / self.view.frame.height
-            // self.view.transform = CGAffineTransform(scaleX: scalingX, y: scalingY)
-            self.view.layoutSubviews()
-        }, completion: nil)
+        guard let url = customVideoURL else { return }
+        let fullScreenVC = VRVideoView(show: url,
+                                       in: UIScreen.main.bounds,
+                                       autoPlay: true,
+                                       showFullScreenButton: true)
+        fullScreenVC.delegate = delegate
+        fullScreenVC.isFullScreen = true
+        fullScreenVC.videoPlayer = videoPlayer
+        
+        UIApplication.topViewController().definesPresentationContext = true
+        fullScreenVC.modalPresentationStyle = .overFullScreen
+        fullScreenVC.modalTransitionStyle = .crossDissolve
+        UIApplication.topViewController().present(fullScreenVC, animated: true, completion: nil)
     }
     
     
     /// Undo the current full screen, if any.
-    ///
-    /// This method sets the view frame to the original `frame` provided when creating this `VRVideoView`.
+    /// This method just dismiss the current `VRVideoView`.
     ///
     /// - Parameters:
     ///   - animated: whether we should animate this transition or not.
-    ///   - duration: Total duration of the animations, measured in seconds.
-    ///               When `animated` is false, this value defaults to 0.0.
     @objc public func undoFullScreen(animated: Bool, duration: Double) {
-        UIView.animate(withDuration: 0.8, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
-            // self.view.transform = CGAffineTransform.identity
-            // self.view.center = self.videoPlayerViewCenter
-            self.view.frame = self.videoFrame
-            self.view.layoutSubviews()
-        }, completion: nil)
+        dismiss(animated: animated, completion: nil)
     }
 }
 

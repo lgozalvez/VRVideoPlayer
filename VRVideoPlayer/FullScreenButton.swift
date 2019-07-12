@@ -15,32 +15,34 @@ import UIKit
     @objc weak var view: UIView?
     private var appearance: Appearance = .dark
     private var background: Background = .vibrant
-    private var hPosition: HPosition = .left
-    private var vPosition: VPosition = .top
+    private var hPosition: HPosition = .right
+    private var vPosition: VPosition = .bottom
+    private var mode: Mode = .normal
     
     /// Full screen action.
     /// This closure gets called when the button gets touched (when firing `.touchUpInside` event).
     var handler: ((FullScreenButton) -> Void)?
     
-    @objc init(view: UIView, handler: ((FullScreenButton) -> Void)? = nil) {
+    @objc init(view: UIView, mode: Mode = .normal, handler: ((FullScreenButton) -> Void)? = nil) {
         self.view = view
         self.handler = handler
+        self.mode = mode
         super.init(frame: .init(x: 20, y: 10, width: 30, height: 30))
         
         view.addSubview(self)
         view.bringSubviewToFront(self)
-        prepareButton()
         self.addTarget(self, action: #selector(perform(action:)), for: .touchUpInside)
     }
     
-    // FIXME: some constraints are not working propertly. Also, opaque property needs some work.
+    // FIXME: Opaque property needs some work.
     // TODO: document this initializer.
     @objc init(view: UIView,
+               mode: Mode = .normal,
                handler: ((FullScreenButton) -> Void)? = nil,
                appearance: Appearance = .dark,
                background: Background = .vibrant,
-               hPosition: HPosition = .left,
-               vPosition: VPosition = .top) {
+               hPosition: HPosition = .right,
+               vPosition: VPosition = .bottom) {
         
         self.appearance = appearance
         self.background = background
@@ -50,11 +52,11 @@ import UIKit
         // Code from previous init
         self.view = view
         self.handler = handler
+        self.mode = mode
         super.init(frame: .init(x: 20, y: 10, width: 30, height: 30))
         
         view.addSubview(self)
         view.bringSubviewToFront(self)
-        prepareButton()
         self.addTarget(self, action: #selector(perform(action:)), for: .touchUpInside)
         // End of Code from previous init
     }
@@ -69,6 +71,11 @@ import UIKit
         }
     }
     
+    public override func didMoveToSuperview() {
+        super.didMoveToSuperview()
+        prepareButton()
+    }
+    
     @objc private func prepareButton() {
         // FIXME: some constraints are not working.
         translatesAutoresizingMaskIntoConstraints = false
@@ -79,21 +86,21 @@ import UIKit
         if let _view = view {
             switch hPosition {
             case .left:
-                leftAnchor.constraint(equalTo: _view.layoutMarginsGuide.leftAnchor/*_view.leftAnchor*/, constant: 15).isActive = true
+                leftAnchor.constraint(equalTo: _view.layoutMarginsGuide.leftAnchor, constant: 15).isActive = true
             case .right:
-                rightAnchor.constraint(equalTo: _view.layoutMarginsGuide.rightAnchor/*_view.rightAnchor*/, constant: 15).isActive = true
+                rightAnchor.constraint(equalTo: _view.layoutMarginsGuide.rightAnchor, constant: -15).isActive = true
             }
             
             switch vPosition {
             case .top:
-                topAnchor.constraint(equalTo: _view.layoutMarginsGuide.topAnchor/*_view.topAnchor*/, constant: 15).isActive = true
+                topAnchor.constraint(equalTo: _view.layoutMarginsGuide.topAnchor, constant: 15).isActive = true
             case .bottom:
-                bottomAnchor.constraint(equalTo: _view.layoutMarginsGuide.bottomAnchor/*_view.bottomAnchor*/, constant: 15).isActive = true
+                bottomAnchor.constraint(equalTo: _view.layoutMarginsGuide.bottomAnchor, constant: -15).isActive = true
             }
         }
 
         // Configure button icon and blur based on appearance.
-        set(mode: .normal)
+        set(mode: mode)
         
         var effect: UIBlurEffect
         if case .dark = appearance {
