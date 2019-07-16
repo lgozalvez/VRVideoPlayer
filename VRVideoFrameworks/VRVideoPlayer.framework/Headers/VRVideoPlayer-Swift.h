@@ -186,6 +186,52 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 # pragma pop_macro("any")
 #endif
 
+@class NSCoder;
+enum Mode : NSInteger;
+
+SWIFT_CLASS("_TtC13VRVideoPlayer16FullScreenButton")
+@interface FullScreenButton : UIButton
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+- (void)didMoveToSuperview;
+/// Tell the button what’s it’s current state or mode.
+/// This method configure the button icons based on it’s mode.
+/// \param mode determines the current button mode, <code>fullScreen</code> or <code>normal</code>.
+///
+- (void)setWithMode:(enum Mode)mode;
+- (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
+@end
+
+
+@interface FullScreenButton (SWIFT_EXTENSION(VRVideoPlayer))
+@end
+
+typedef SWIFT_ENUM(NSInteger, Appearance, closed) {
+  AppearanceDark = 0,
+  AppearanceLight = 1,
+};
+
+typedef SWIFT_ENUM(NSInteger, Background, closed) {
+  BackgroundVibrant = 0,
+  BackgroundOpaque = 1,
+};
+
+/// Determines de horizontal position.
+typedef SWIFT_ENUM(NSInteger, HPosition, closed) {
+  HPositionRight = 0,
+  HPositionLeft = 1,
+};
+
+/// Determines de vertical position.
+typedef SWIFT_ENUM(NSInteger, VPosition, closed) {
+  VPositionTop = 0,
+  VPositionBottom = 1,
+};
+
+typedef SWIFT_ENUM(NSInteger, Mode, closed) {
+  ModeFullScreen = 0,
+  ModeNormal = 1,
+};
+
 typedef SWIFT_ENUM(NSInteger, RotationMode, closed) {
   RotationModeUp = 0,
   RotationModeDown = 1,
@@ -193,12 +239,15 @@ typedef SWIFT_ENUM(NSInteger, RotationMode, closed) {
   RotationModeRight = 3,
 };
 
-@class NSCoder;
+
+
+@protocol VRVideoViewDelegate;
 @class NSBundle;
 
 /// Displays a video in 360º, uses device motion and gestures recognizers to nagivate throughout the video.
 SWIFT_CLASS("_TtC13VRVideoPlayer11VRVideoView")
 @interface VRVideoView : UIViewController
+@property (nonatomic, strong) id <VRVideoViewDelegate> _Nullable delegate;
 /// Creates a VRVideoView object to display a video in 360º with the provided information.
 /// \param url video URL to display in the view.
 ///
@@ -206,7 +255,7 @@ SWIFT_CLASS("_TtC13VRVideoPlayer11VRVideoView")
 ///
 /// \param autoPlay determines whether or not the video should start playing automatically. Defaults to <code>true</code>.
 ///
-- (nonnull instancetype)initWithShow:(NSURL * _Nonnull)url in:(CGRect)frame autoPlay:(BOOL)autoPlay OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithShow:(NSURL * _Nonnull)url in:(CGRect)frame autoPlay:(BOOL)autoPlay showFullScreenButton:(BOOL)showFullScreenButton OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder SWIFT_UNAVAILABLE;
 - (void)viewDidLayoutSubviews;
 - (BOOL)shouldHideTransitionView SWIFT_WARN_UNUSED_RESULT;
@@ -226,15 +275,53 @@ SWIFT_CLASS("_TtC13VRVideoPlayer11VRVideoView")
 /// When <code>animated</code> is false, this value defaults to 0.0.
 ///
 - (void)rotate:(enum RotationMode)mode animated:(BOOL)animated duration:(double)duration;
-/// Updates the given URL and “rebuils” the current view.
+/// Updates the player with the given URL.
+/// If this method gets called with the same URL that is currently playing,
+/// it just <code>refresh</code> the video playback.
+/// <h2>Refreshing policy</h2>
+/// This method assumes your video is a live-streaming, that means when updating it, we try to play to the most up-to-date video playback time.
+/// Remember, this policy only applies when you pass the same URL that is currently playing. If you pass a new URL, this method
+/// just loads and play as it’s supposed to do.
+/// note:
+/// This method follows the <code>autoPlay</code> policy dictated at initialization time.
 /// \param url new url to update from.
 ///
 - (void)updateWithUrl:(NSURL * _Nonnull)url;
-/// Pause and set to <code>nil</code> the current video player.
+/// Updates the player with the given URL.
+/// If this method gets called with the same URL that is currently playing,
+/// it just <code>refresh</code> the video playback.
+/// <h2>Refreshing policy</h2>
+/// By <code>refresh</code> we mean that if the <code>isStreaming</code> property is true, it plays from the most up-to-date video playback time.
+/// Otherwise, if <code>isStreaming</code> is false, the player starts playing the video from the beginning.
+/// Remember, this policy only applies when you pass the same URL that is currently playing. If you pass a new URL, this method
+/// just loads and play as it’s supposed to do.
+/// note:
+/// This method follows the <code>autoPlay</code> policy dictated at initialization time.
+/// \param url new url to update from.
+///
+/// \param isStreaming if true, refresh the video from the most up-to-date playback time, otherwise, plays from the beginning.
+///
+- (void)updateWithUrl:(NSURL * _Nonnull)url isStreaming:(BOOL)isStreaming;
+/// Invalidates the current playing video. Basically this throw away the video it was playing.
+/// To continue playing the same video you stopped, call <code>.startOver()</code> or <code>.startOver(streaming:)</code> methods.
 - (void)stop;
-/// Equivalent to “reloading” this view.
-/// Call this method if you’d like to “resume” a video that has been stopped using the <code>.stop()</code> method.
+/// Starts over the current playing video.
+/// Call this method after you stopped a video and want to play it again. [i.e. after calling the <code>.stop()</code> method.]
+/// If you call this method and there’s a playing video, we apply the following policy:
+/// <h2>Refreshing policy</h2>
+/// This method assumes your video is a live-streaming, that means when updating it, we try to play to the most up-to-date video playback time.
+/// note:
+/// This method follows the <code>autoPlay</code> policy dictated at initialization time.
 - (void)startOver;
+/// Starts over the current playing video.
+/// Call this method after you stopped a video and want to play it again. [i.e. after calling the <code>.stop()</code> method.]
+/// If you call this method and there’s a playing video, we apply the following policy:
+/// <h2>Refreshing policy</h2>
+/// By <code>refresh</code> we mean that if the <code>streaming</code> property is true, it plays from the most up-to-date video playback time.
+/// Otherwise, if <code>isStreaming</code> is false, the player starts playing the video from the beginning.
+/// note:
+/// This method follows the <code>autoPlay</code> policy dictated at initialization time.
+- (void)startOverWithStreaming:(BOOL)streaming;
 /// Sets the current video frame to fill the screen bounds.
 /// \param animated whether we should animate this transition or not.
 ///
@@ -243,17 +330,41 @@ SWIFT_CLASS("_TtC13VRVideoPlayer11VRVideoView")
 ///
 - (void)fullScreenWithAnimated:(BOOL)animated duration:(double)duration;
 /// Undo the current full screen, if any.
-/// This method sets the view frame to the original <code>frame</code> provided when creating this <code>VRVideoView</code>.
+/// This method just dismiss the current <code>VRVideoView</code>.
 /// \param animated whether we should animate this transition or not.
-///
-/// \param duration Total duration of the animations, measured in seconds.
-/// When <code>animated</code> is false, this value defaults to 0.0.
 ///
 - (void)undoFullScreenWithAnimated:(BOOL)animated duration:(double)duration;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
 @end
 
 
+
+
+@interface VRVideoView (SWIFT_EXTENSION(VRVideoPlayer))
+- (void)observeValueForKeyPath:(NSString * _Nullable)keyPath ofObject:(id _Nullable)object change:(NSDictionary<NSKeyValueChangeKey, id> * _Nullable)change context:(void * _Nullable)context;
+@end
+
+enum VideoStatus : NSInteger;
+
+SWIFT_PROTOCOL("_TtP13VRVideoPlayer19VRVideoViewDelegate_")
+@protocol VRVideoViewDelegate
+/// This method gets called every time the <code>VideoView</code> update it’s video.
+/// This method gets called after the corresponding specific status method.
+/// [i.e. when a <code>.loading</code> status gets fired,
+/// first we invoke the <code>loadingVideo()</code> method, and then this method gets called.]
+/// \param status new video status.
+///
+- (void)videoStatusChangedToStatus:(enum VideoStatus)status;
+- (void)loadingVideo;
+- (void)readyToPlayVideo;
+- (void)failedToLoadVideo;
+@end
+
+typedef SWIFT_ENUM(NSInteger, VideoStatus, closed) {
+  VideoStatusLoading = 0,
+  VideoStatusReadyToPlay = 1,
+  VideoStatusFailed = 2,
+};
 
 #if __has_attribute(external_source_symbol)
 # pragma clang attribute pop

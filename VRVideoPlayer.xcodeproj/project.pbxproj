@@ -9,11 +9,20 @@
 /* Begin PBXBuildFile section */
 		10AA55ACC7DFCD59D11D0168 /* Pods_VRVideoPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 936142184105655BB264FFB2 /* Pods_VRVideoPlayer.framework */; };
 		45891D7B8F856CCFCFFCA06A /* Pods_VRVideoPlayerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A34D550013BFE683849E0DB /* Pods_VRVideoPlayerTests.framework */; };
+		AC11AB1C22D0EC20005FDCBA /* VideoStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC11AB1B22D0EC20005FDCBA /* VideoStatus.swift */; };
+		AC11AB1E22D0ED12005FDCBA /* VRVideoViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC11AB1D22D0ED12005FDCBA /* VRVideoViewDelegate.swift */; };
+		AC3F71D822D8A1BE005D0111 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3F71D722D8A1BE005D0111 /* UIApplication+Extension.swift */; };
 		AC6EA37422CB62D3004B0C10 /* RotationMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6EA37322CB62D3004B0C10 /* RotationMode.swift */; };
+		AC84DC4B22CF6EE700FE931B /* cancel_music_light_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AC84DC4722CF6EE700FE931B /* cancel_music_light_icon.png */; };
+		AC84DC4C22CF6EE700FE931B /* full_screen_light_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AC84DC4822CF6EE700FE931B /* full_screen_light_icon.png */; };
+		AC84DC4D22CF6EE700FE931B /* cancel_music_dark_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AC84DC4922CF6EE700FE931B /* cancel_music_dark_icon.png */; };
+		AC84DC4E22CF6EE700FE931B /* full_screen_dark_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AC84DC4A22CF6EE700FE931B /* full_screen_dark_icon.png */; };
 		ACC6C19D22CAE08F007F9D74 /* VRVideoPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACC6C19322CAE08F007F9D74 /* VRVideoPlayer.framework */; };
 		ACC6C1A222CAE08F007F9D74 /* VRVideoPlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC6C1A122CAE08F007F9D74 /* VRVideoPlayerTests.swift */; };
 		ACC6C1A422CAE08F007F9D74 /* VRVideoPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = ACC6C19622CAE08F007F9D74 /* VRVideoPlayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ACC6C1AE22CAE4FF007F9D74 /* VRVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC6C1AD22CAE4FF007F9D74 /* VRVideoView.swift */; };
+		ACD8DF9422CE265800B47CCE /* FullScreenButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD8DF9322CE265800B47CCE /* FullScreenButton.swift */; };
+		ACD8DF9622CE2A2A00B47CCE /* FullScreenButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD8DF9522CE2A2A00B47CCE /* FullScreenButton+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,7 +40,14 @@
 		4D8C9218665A5B43D4E9F4F8 /* Pods-VRVideoPlayerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VRVideoPlayerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VRVideoPlayerTests/Pods-VRVideoPlayerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7A34D550013BFE683849E0DB /* Pods_VRVideoPlayerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VRVideoPlayerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		936142184105655BB264FFB2 /* Pods_VRVideoPlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VRVideoPlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC11AB1B22D0EC20005FDCBA /* VideoStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoStatus.swift; sourceTree = "<group>"; };
+		AC11AB1D22D0ED12005FDCBA /* VRVideoViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VRVideoViewDelegate.swift; sourceTree = "<group>"; };
+		AC3F71D722D8A1BE005D0111 /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
 		AC6EA37322CB62D3004B0C10 /* RotationMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationMode.swift; sourceTree = "<group>"; };
+		AC84DC4722CF6EE700FE931B /* cancel_music_light_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cancel_music_light_icon.png; sourceTree = "<group>"; };
+		AC84DC4822CF6EE700FE931B /* full_screen_light_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = full_screen_light_icon.png; sourceTree = "<group>"; };
+		AC84DC4922CF6EE700FE931B /* cancel_music_dark_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cancel_music_dark_icon.png; sourceTree = "<group>"; };
+		AC84DC4A22CF6EE700FE931B /* full_screen_dark_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = full_screen_dark_icon.png; sourceTree = "<group>"; };
 		ACC6C19322CAE08F007F9D74 /* VRVideoPlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VRVideoPlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACC6C19622CAE08F007F9D74 /* VRVideoPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VRVideoPlayer.h; sourceTree = "<group>"; };
 		ACC6C19722CAE08F007F9D74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -39,6 +55,8 @@
 		ACC6C1A122CAE08F007F9D74 /* VRVideoPlayerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VRVideoPlayerTests.swift; sourceTree = "<group>"; };
 		ACC6C1A322CAE08F007F9D74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ACC6C1AD22CAE4FF007F9D74 /* VRVideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VRVideoView.swift; sourceTree = "<group>"; };
+		ACD8DF9322CE265800B47CCE /* FullScreenButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenButton.swift; sourceTree = "<group>"; };
+		ACD8DF9522CE2A2A00B47CCE /* FullScreenButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FullScreenButton+Extension.swift"; sourceTree = "<group>"; };
 		EAB00AB61C7018B8021C7F15 /* Pods-VRVideoPlayer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VRVideoPlayer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VRVideoPlayer/Pods-VRVideoPlayer.debug.xcconfig"; sourceTree = "<group>"; };
 		ECF5C975EA064CD33E65706F /* Pods-VRVideoPlayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VRVideoPlayer.release.xcconfig"; path = "Pods/Target Support Files/Pods-VRVideoPlayer/Pods-VRVideoPlayer.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -87,6 +105,10 @@
 		AC6EA39D22CB7063004B0C10 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				AC84DC4922CF6EE700FE931B /* cancel_music_dark_icon.png */,
+				AC84DC4722CF6EE700FE931B /* cancel_music_light_icon.png */,
+				AC84DC4A22CF6EE700FE931B /* full_screen_dark_icon.png */,
+				AC84DC4822CF6EE700FE931B /* full_screen_light_icon.png */,
 				ACC6C19622CAE08F007F9D74 /* VRVideoPlayer.h */,
 				ACC6C19722CAE08F007F9D74 /* Info.plist */,
 			);
@@ -118,7 +140,12 @@
 			children = (
 				ACC6C1AD22CAE4FF007F9D74 /* VRVideoView.swift */,
 				AC6EA37322CB62D3004B0C10 /* RotationMode.swift */,
+				ACD8DF9322CE265800B47CCE /* FullScreenButton.swift */,
+				ACD8DF9522CE2A2A00B47CCE /* FullScreenButton+Extension.swift */,
+				AC11AB1B22D0EC20005FDCBA /* VideoStatus.swift */,
+				AC11AB1D22D0ED12005FDCBA /* VRVideoViewDelegate.swift */,
 				AC6EA39D22CB7063004B0C10 /* Supporting Files */,
+				AC3F71D722D8A1BE005D0111 /* UIApplication+Extension.swift */,
 			);
 			path = VRVideoPlayer;
 			sourceTree = "<group>";
@@ -227,6 +254,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC84DC4C22CF6EE700FE931B /* full_screen_light_icon.png in Resources */,
+				AC84DC4B22CF6EE700FE931B /* cancel_music_light_icon.png in Resources */,
+				AC84DC4D22CF6EE700FE931B /* cancel_music_dark_icon.png in Resources */,
+				AC84DC4E22CF6EE700FE931B /* full_screen_dark_icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,8 +344,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC11AB1C22D0EC20005FDCBA /* VideoStatus.swift in Sources */,
+				ACD8DF9622CE2A2A00B47CCE /* FullScreenButton+Extension.swift in Sources */,
+				ACD8DF9422CE265800B47CCE /* FullScreenButton.swift in Sources */,
 				AC6EA37422CB62D3004B0C10 /* RotationMode.swift in Sources */,
 				ACC6C1AE22CAE4FF007F9D74 /* VRVideoView.swift in Sources */,
+				AC11AB1E22D0ED12005FDCBA /* VRVideoViewDelegate.swift in Sources */,
+				AC3F71D822D8A1BE005D0111 /* UIApplication+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,6 +510,10 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/VRVideoPlayer/Supporting Files/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -503,6 +543,10 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/VRVideoPlayer/Supporting Files/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (

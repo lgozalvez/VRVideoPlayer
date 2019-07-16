@@ -8,6 +8,7 @@
 
 import Foundation
 import AVFoundation
+import UIKit
 import Swifty360Player
 
 /// Displays a video in 360º, uses device motion and gestures recognizers to nagivate throughout the video.
@@ -16,8 +17,17 @@ import Swifty360Player
     fileprivate var swifty360ViewController: Swifty360ViewController?
     fileprivate var customVideoURL: URL? = nil
     fileprivate var autoplay: Bool = false
+    fileprivate var showFullScreenButton: Bool = true
     fileprivate var videoFrame: CGRect = .zero
     fileprivate(set) var videoPlayer: AVPlayer?
+    
+    @objc public var delegate: VRVideoViewDelegate?
+    public var isFullScreen: Bool = false
+    
+    // Key-value observing context
+    fileprivate var playerItemContext = 0
+    
+    // fileprivate var videoPlayerViewCenter: CGPoint = .zero
     
     /// Creates a VRVideoView object to display a video in 360º with the provided information.
     ///
@@ -25,11 +35,12 @@ import Swifty360Player
     ///   - url: video URL to display in the view.
     ///   - frame: display position and size to display the video in.
     ///   - autoPlay: determines whether or not the video should start playing automatically. Defaults to `true`.
-    @objc public init(show url: URL, in frame: CGRect, autoPlay: Bool = true) {
+    @objc public init(show url: URL, in frame: CGRect, autoPlay: Bool = true, showFullScreenButton: Bool = true) {
         super.init(nibName: nil, bundle: nil)
         self.customVideoURL = url
         self.videoFrame = frame
         self.autoplay = autoPlay
+        self.showFullScreenButton = showFullScreenButton
         self.view.frame = frame
     }
     
@@ -50,14 +61,38 @@ import Swifty360Player
         super.viewWillAppear(animated)
 
         guard let url = customVideoURL else { return }
-        videoPlayer = AVPlayer(url: url)
+        
+        if videoPlayer == nil {
+            videoPlayer = AVPlayer(url: url)
+            
+            delegate?.loadingVideo()
+            delegate?.videoStatusChangedTo(status: .loading)
+            
+            // Register as an observer of the player item's status property.
+            videoPlayer?.currentItem?.addObserver(self,
+                                                 forKeyPath: #keyPath(AVPlayerItem.status),
+                                                 options: [.old, .new],
+                                                 context: &playerItemContext)
+        }
+        
         guard let videoPlayer = videoPlayer else { return }
         
         let motionManager = Swifty360MotionManager.shared
+        
+        guard swifty360ViewController == nil else {
+            if autoplay {
+                videoPlayer.play()
+            }
+            return
+        }
         swifty360ViewController = Swifty360ViewController(withAVPlayer: videoPlayer,
                                                           motionManager: motionManager)
         
         if let swifty360ViewController = swifty360ViewController {
+            if showFullScreenButton {
+                addDefaultFullScreenButton(on: swifty360ViewController.view)
+            }
+            
             addChild(swifty360ViewController)
             view.addSubview(swifty360ViewController.view)
             swifty360ViewController.didMove(toParent: self)
@@ -66,6 +101,41 @@ import Swifty360Player
         if autoplay {
             videoPlayer.play()
         }
+    }
+    
+    @objc private func addDefaultFullScreenButton(on view: UIView) {
+        /// This method assumes the button will dispatch another view controller [modally]
+        /// this means we will have 1 full screen button with only one possible state in a VRVideoView.
+        let mode: FullScreenButton.Mode = isFullScreen ? .fullScreen : .normal
+        
+        _ = FullScreenButton(view: view, mode: mode, handler: { _ in
+            if self.isFullScreen {
+                self.undoFullScreen(animated: true, duration: 0.3)
+            } else {
+                self.fullScreen(animated: true, duration: 0.3)
+            }
+        })
+    }
+    
+    // FIXME: Add the proper custom button when entering in full-screen mode.
+    // TODO: expose this interface when issues gets solved.
+    @objc private func addFullScreenButton(
+        appearance: FullScreenButton.Appearance = .dark,
+        background: FullScreenButton.Background = .vibrant,
+        hPosition: FullScreenButton.HPosition = .left,
+        vPosition: FullScreenButton.VPosition = .top,
+        isFullScreen: Bool = false) {
+        
+        let mode: FullScreenButton.Mode = isFullScreen ? .fullScreen : .normal
+        guard let _view = swifty360ViewController?.view else { return }
+        
+        _ = FullScreenButton(view: _view, mode: mode, handler: { _ in
+            if isFullScreen {
+                self.undoFullScreen(animated: true, duration: 0.3)
+            } else {
+                self.fullScreen(animated: true, duration: 0.3)
+            }
+        }, appearance: appearance, background: background, hPosition: hPosition, vPosition: vPosition)
     }
     
     // MARK: - Convenience methods.
@@ -101,26 +171,130 @@ import Swifty360Player
         }
     }
     
-    /// Updates the given URL and "rebuils" the current view.
+    /// Updates the player with the given URL.
     ///
-    /// - Parameter url: new url to update from.
+    /// If this method gets called with the same URL that is currently playing,
+    /// it just `refresh` the video playback.
+    ///
+    /// ## Refreshing policy
+    /// This method assumes your video is a live-streaming, that means when updating it, we try to play to the most up-to-date video playback time.
+    ///
+    /// Remember, this policy only applies when you pass the same URL that is currently playing. If you pass a new URL, this method
+    /// just loads and play as it's supposed to do.
+    ///
+    /// - note: This method follows the `autoPlay` policy dictated at initialization time.
+    ///
+    /// - Parameters:
+    ///   - url: new url to update from.
     @objc public func update(url: URL) {
-        stop()
-        customVideoURL = url
-        viewWillAppear(false)
+        update(url: url, isStreaming: true)
     }
-    
-    /// Pause and set to `nil` the current video player.
-    @objc public func stop() {
-        videoPlayer?.pause()
-        videoPlayer = nil
-    }
-    
-    /// Equivalent to "reloading" this view.
+
+    /// Updates the player with the given URL.
     ///
-    /// Call this method if you'd like to "resume" a video that has been stopped using the `.stop()` method.
+    /// If this method gets called with the same URL that is currently playing,
+    /// it just `refresh` the video playback.
+    ///
+    /// ## Refreshing policy
+    /// By `refresh` we mean that if the `isStreaming` property is true, it plays from the most up-to-date video playback time.
+    /// Otherwise, if `isStreaming` is false, the player starts playing the video from the beginning.
+    ///
+    /// Remember, this policy only applies when you pass the same URL that is currently playing. If you pass a new URL, this method
+    /// just loads and play as it's supposed to do.
+    ///
+    /// - note: This method follows the `autoPlay` policy dictated at initialization time.
+    ///
+    /// - Parameters:
+    ///   - url: new url to update from.
+    ///   - isStreaming: if true, refresh the video from the most up-to-date playback time, otherwise, plays from the beginning.
+    @objc public func update(url: URL, isStreaming: Bool = true) {
+        defer {
+            if autoplay {
+                videoPlayer?.play()
+            }
+        }
+        
+        /// If we get the same URL, do not create a new one,
+        /// just make it seek the appropiate playback time.
+        guard customVideoURL != url else {
+            videoPlayer?.seek(to: isStreaming ? .positiveInfinity : .zero)
+            return
+        }
+        
+        customVideoURL = url
+        
+        let item = AVPlayerItem(url: url)
+
+        delegate?.loadingVideo()
+        delegate?.videoStatusChangedTo(status: .loading)
+        
+        // Register as an observer of the player item's status property.
+        item.addObserver(self,
+                         forKeyPath: #keyPath(AVPlayerItem.status),
+                         options: [.old, .new],
+                         context: &playerItemContext)
+        
+        videoPlayer?.replaceCurrentItem(with: item)
+    }
+    
+    /// Invalidates the current playing video. Basically this throw away the video it was playing.
+    ///
+    /// To continue playing the same video you stopped, call `.startOver()` or `.startOver(streaming:)` methods.
+    @objc public func stop() {
+        videoPlayer?.replaceCurrentItem(with: nil)
+    }
+    
+    /// Starts over the current playing video.
+    ///
+    /// Call this method after you stopped a video and want to play it again. [i.e. after calling the `.stop()` method.]
+    ///
+    /// If you call this method and there's a playing video, we apply the following policy:
+    /// ## Refreshing policy
+    /// This method assumes your video is a live-streaming, that means when updating it, we try to play to the most up-to-date video playback time.
+    ///
+    /// - note: This method follows the `autoPlay` policy dictated at initialization time.
     @objc public func startOver() {
-        viewWillAppear(false)
+        startOver(streaming: true)
+    }
+    
+    /// Starts over the current playing video.
+    ///
+    /// Call this method after you stopped a video and want to play it again. [i.e. after calling the `.stop()` method.]
+    ///
+    /// If you call this method and there's a playing video, we apply the following policy:
+    /// ## Refreshing policy
+    /// By `refresh` we mean that if the `streaming` property is true, it plays from the most up-to-date video playback time.
+    /// Otherwise, if `isStreaming` is false, the player starts playing the video from the beginning.
+    ///
+    /// - note: This method follows the `autoPlay` policy dictated at initialization time.
+    @objc public func startOver(streaming: Bool = true) {
+        defer {
+            if autoplay {
+                videoPlayer?.play()
+            }
+        }
+        
+        /// If there's already an item, do not create a new one,
+        /// just make it seek the up-to-date stream.
+        /// - warning: this only works for live streamming videos; to support normal videos,
+        ///            we need to seek `.zero`.
+        guard videoPlayer?.currentItem == nil else {
+            videoPlayer?.seek(to: streaming ? .positiveInfinity : .zero)
+            return
+        }
+        
+        guard let url = customVideoURL else { return }
+        let item = AVPlayerItem(url: url)
+        
+        delegate?.loadingVideo()
+        delegate?.videoStatusChangedTo(status: .loading)
+        
+        // Register as an observer of the player item's status property.
+        item.addObserver(self,
+                         forKeyPath: #keyPath(AVPlayerItem.status),
+                         options: [.old, .new],
+                         context: &playerItemContext)
+        videoPlayer?.replaceCurrentItem(with: item)
     }
     
     /// Sets the current video frame to fill the screen bounds.
@@ -130,25 +304,29 @@ import Swifty360Player
     ///   - duration: Total duration of the animations, measured in seconds.
     ///               When `animated` is false, this value defaults to 0.0.
     @objc public func fullScreen(animated: Bool, duration: Double) {
-        let _duration = animated ? duration : 0.0
-        UIView.animate(withDuration: _duration) {
-            self.view.frame = UIScreen.main.bounds
-        }
+        guard let url = customVideoURL else { return }
+        let fullScreenVC = VRVideoView(show: url,
+                                       in: UIScreen.main.bounds,
+                                       autoPlay: true,
+                                       showFullScreenButton: true)
+        fullScreenVC.delegate = delegate
+        fullScreenVC.isFullScreen = true
+        fullScreenVC.videoPlayer = videoPlayer
+        
+        UIApplication.topViewController().definesPresentationContext = true
+        fullScreenVC.modalPresentationStyle = .overFullScreen
+        fullScreenVC.modalTransitionStyle = .crossDissolve
+        UIApplication.topViewController().present(fullScreenVC, animated: true, completion: nil)
     }
     
+    
     /// Undo the current full screen, if any.
-    ///
-    /// This method sets the view frame to the original `frame` provided when creating this `VRVideoView`.
+    /// This method just dismiss the current `VRVideoView`.
     ///
     /// - Parameters:
     ///   - animated: whether we should animate this transition or not.
-    ///   - duration: Total duration of the animations, measured in seconds.
-    ///               When `animated` is false, this value defaults to 0.0.
     @objc public func undoFullScreen(animated: Bool, duration: Double) {
-        let _duration = animated ? duration : 0.0
-        UIView.animate(withDuration: _duration) {
-            self.view.frame = self.videoFrame
-        }
+        dismiss(animated: animated, completion: nil)
     }
 }
 
@@ -170,6 +348,54 @@ import Swifty360Player
             return (180 * .pi) / 180
         case .up:
             return (360 * .pi) / 180
+        }
+    }
+}
+
+// MARK: - Observer
+@objc extension VRVideoView {
+    public override func observeValue(
+        forKeyPath keyPath: String?,
+        of object: Any?,
+        change: [NSKeyValueChangeKey : Any]?,
+        context: UnsafeMutableRawPointer?) {
+        
+        guard context == &playerItemContext else {
+            super.observeValue(forKeyPath: keyPath,
+                               of: object,
+                               change: change,
+                               context: context)
+            return
+        }
+        
+        if keyPath == #keyPath(AVPlayer.status) {
+            let status: AVPlayerItem.Status?
+            if let statusNumber = change?[.newKey] as? NSNumber {
+                status = AVPlayerItem.Status(rawValue: statusNumber.intValue)
+            } else {
+                status = .unknown
+            }
+            
+            guard let _status = status else {
+                delegate?.failedToLoadVideo()
+                delegate?.videoStatusChangedTo(status: .failed)
+                return
+            }
+            
+            switch _status {
+            case .readyToPlay:
+                delegate?.readyToPlayVideo()
+                delegate?.videoStatusChangedTo(status: .readyToPlay)
+            case .failed:
+                delegate?.failedToLoadVideo()
+                delegate?.videoStatusChangedTo(status: .failed)
+            case .unknown:
+                delegate?.loadingVideo()
+                delegate?.videoStatusChangedTo(status: .loading)
+            @unknown default:
+                delegate?.failedToLoadVideo()
+                delegate?.videoStatusChangedTo(status: .failed)
+            }
         }
     }
 }
