@@ -42,6 +42,8 @@ import Swifty360Player
         self.autoplay = autoPlay
         self.showFullScreenButton = showFullScreenButton
         self.view.frame = frame
+        
+        self.initView()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -57,9 +59,7 @@ import Swifty360Player
         return true
     }
     
-    public override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
+    fileprivate func initView() {
         guard let url = customVideoURL else { return }
         
         if videoPlayer == nil {
@@ -70,9 +70,9 @@ import Swifty360Player
             
             // Register as an observer of the player item's status property.
             videoPlayer?.currentItem?.addObserver(self,
-                                                 forKeyPath: #keyPath(AVPlayerItem.status),
-                                                 options: [.old, .new],
-                                                 context: &playerItemContext)
+                                                  forKeyPath: #keyPath(AVPlayerItem.status),
+                                                  options: [.old, .new],
+                                                  context: &playerItemContext)
         }
         
         guard let videoPlayer = videoPlayer else { return }
@@ -155,7 +155,7 @@ import Swifty360Player
         let _angle = CGFloat(angle)
         view.transform = CGAffineTransform(rotationAngle: _angle)
     }
-
+    
     /// Rotates the `view` to the given `RotationMode`
     ///
     /// - Parameters:
@@ -189,7 +189,7 @@ import Swifty360Player
     @objc public func update(url: URL) {
         update(url: url, isStreaming: true)
     }
-
+    
     /// Updates the player with the given URL.
     ///
     /// If this method gets called with the same URL that is currently playing,
@@ -216,15 +216,18 @@ import Swifty360Player
         
         /// If we get the same URL, do not create a new one,
         /// just make it seek the appropiate playback time.
-        guard customVideoURL != url else {
-            videoPlayer?.seek(to: isStreaming ? .positiveInfinity : .zero)
-            return
+        if customVideoURL == url  {
+            if (videoPlayer?.currentItem != nil) {
+                videoPlayer?.seek(to: isStreaming ? .positiveInfinity : .zero)
+                return
+            }
         }
+        
         
         customVideoURL = url
         
         let item = AVPlayerItem(url: url)
-
+        
         delegate?.loadingVideo()
         delegate?.videoStatusChangedTo(status: .loading)
         
@@ -235,12 +238,16 @@ import Swifty360Player
                          context: &playerItemContext)
         
         videoPlayer?.replaceCurrentItem(with: item)
+        
+        self.rewindVideo()
     }
     
     /// Invalidates the current playing video. Basically this throw away the video it was playing.
     ///
     /// To continue playing the same video you stopped, call `.startOver()` or `.startOver(streaming:)` methods.
     @objc public func stop() {
+        videoPlayer?.pause()
+        self.rewindVideo()
         videoPlayer?.replaceCurrentItem(with: nil)
     }
     
@@ -327,6 +334,10 @@ import Swifty360Player
     ///   - animated: whether we should animate this transition or not.
     @objc public func undoFullScreen(animated: Bool, duration: Double) {
         dismiss(animated: animated, completion: nil)
+    }
+    
+    fileprivate func rewindVideo() {
+        videoPlayer?.seek(to: CMTimeMakeWithSeconds(0, preferredTimescale: 10), toleranceBefore: CMTime.zero, toleranceAfter: CMTime.zero)
     }
 }
 
