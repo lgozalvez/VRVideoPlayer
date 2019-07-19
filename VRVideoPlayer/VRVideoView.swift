@@ -35,12 +35,40 @@ import Swifty360Player
     ///   - url: video URL to display in the view.
     ///   - frame: display position and size to display the video in.
     ///   - autoPlay: determines whether or not the video should start playing automatically. Defaults to `true`.
+    ///   - showFullScreenButton: determines whether or not the view should have the Full Screen Button visible.
     @objc public init(show url: URL, in frame: CGRect, autoPlay: Bool = true, showFullScreenButton: Bool = true) {
         super.init(nibName: nil, bundle: nil)
+        
         self.customVideoURL = url
         self.videoFrame = frame
         self.autoplay = autoPlay
         self.showFullScreenButton = showFullScreenButton
+
+        self.view.frame = frame
+        
+        self.initView()
+    }
+    
+    /// Creates a VRVideoView object to display a video in 360º with the provided information.
+    ///
+    /// - Parameters:
+    ///   - url: video URL to display in the view.
+    ///   - frame: display position and size to display the video in.
+    ///   - autoPlay: determines whether or not the video should start playing automatically. Defaults to `true`.
+    ///   - showFullScreenButton: determines whether or not the view should have the Full Screen Button visible.
+    fileprivate init(show url: URL,
+                     in frame: CGRect,
+                     with videoPlayer:AVPlayer?,
+                     autoPlay: Bool = true,
+                     showFullScreenButton: Bool = true) {
+        
+        super.init(nibName: nil, bundle: nil)
+        
+        self.customVideoURL = url
+        self.videoFrame = frame
+        self.autoplay = autoPlay
+        self.showFullScreenButton = showFullScreenButton
+        self.videoPlayer = videoPlayer
         self.view.frame = frame
         
         self.initView()
@@ -314,11 +342,12 @@ import Swifty360Player
         guard let url = customVideoURL else { return }
         let fullScreenVC = VRVideoView(show: url,
                                        in: UIScreen.main.bounds,
+                                       with: self.videoPlayer,
                                        autoPlay: true,
                                        showFullScreenButton: true)
+        
         fullScreenVC.delegate = delegate
         fullScreenVC.isFullScreen = true
-        fullScreenVC.videoPlayer = videoPlayer
         
         UIApplication.topViewController().definesPresentationContext = true
         fullScreenVC.modalPresentationStyle = .overFullScreen
